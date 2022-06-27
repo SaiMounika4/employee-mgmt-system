@@ -4,12 +4,12 @@ import Button from '@mui/material/Button';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
 
-export default function AddEmployee ({ employees, setEmployees, setAddEmployee}) {
+export default function AddEmployee ({ employees, setEmployees, setAddEmployee }) {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [salary, setSalary] = useState(0);
-    const [dob,setDob] = useState('');
+    const [dob, setDob] = useState('');
 
     const handleAdd = (e) => {
         e.preventDefault();
@@ -27,7 +27,11 @@ export default function AddEmployee ({ employees, setEmployees, setAddEmployee})
                 lastName: lastName,
                 email: email,
                 salary: salary,
-                dob: dob
+                dob: dob,
+                goal_1: "",
+                goal_2: "",
+                goal1Rating: '',
+                goal2Rating: ''
             }
 
             fetch("http://localhost:8900/employeeData", {

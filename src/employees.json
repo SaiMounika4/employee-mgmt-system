@@ -3,7 +3,7 @@
     {
       "id": 1,
       "firstName": "Sai",
-      "lastName": "Mounika",
+      "lastName": "Mounikad",
       "email": "saimounika@example.com",
       "salary": 30000,
       "dob": "1989-08-04"
@@ -13,7 +13,7 @@
       "firstName": "Elangovan",
       "lastName": "Anbu",
       "email": "elangovananbu@example.com",
-      "salary": 33000,
+      "salary": "35000",
       "dob": "1990-03-01"
     },
     {
@@ -26,11 +26,47 @@
     },
     {
       "id": 6,
-      "firstName": "Duvvuru",
+      "firstName": "D",
       "lastName": "Vijaya",
       "email": "duvvuruvijaya@hotmail.com",
       "salary": "20000",
-      "dob": "2022-03-11"
+      "dob": "2022-03-11",
+      "goal_1": "learn nodeJs",
+      "goal_2": "be competitive",
+      "goal1Rating": "4",
+      "goal2Rating": "4"
+    },
+    {
+      "id": 7,
+      "firstName": "Padma",
+      "lastName": "p",
+      "email": "padmap@hotmail.com",
+      "salary": "45000",
+      "dob": "2019-02-15"
+    },
+    {
+      "firstName": "Peter",
+      "lastName": "Hans",
+      "email": "peterhans@example.com",
+      "salary": "55000",
+      "dob": "2022-01-07",
+      "goal_1": "",
+      "goal_2": "",
+      "goal1Rating": "",
+      "goal2Rating": "",
+      "id": 8
+    },
+    {
+      "firstName": "Sai ",
+      "lastName": "Sai",
+      "email": "saisai@hotmail.com",
+      "salary": "23000",
+      "dob": "2022-06-02",
+      "goal_1": "improve yourself",
+      "goal_2": "follow the process",
+      "goal1Rating": "3",
+      "goal2Rating": "4",
+      "id": 9
     }
   ]
 }

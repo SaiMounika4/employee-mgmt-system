@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Button from '@mui/material/Button';
 
-export default function ListEmployees ({ employees, handleEdit, handleDelete }) {
+export default function ListEmployees ({ employees, handleEdit, handleAddGoals, handleDelete }) {
 
     return (
         <div>
@@ -36,6 +36,7 @@ export default function ListEmployees ({ employees, handleEdit, handleDelete }) 
                     <TableCell align="right">{row.dob}</TableCell>
                     <TableCell align="right">
                         <Button variant="outlined" size="small" onClick={()=>handleEdit(row.id)}>Edit</Button> &nbsp;&nbsp;
+                        <Button variant="outlined" size="small" onClick={()=>handleAddGoals(row.id)}>Add Goals</Button> &nbsp;&nbsp;
                         <Button variant="outlined" size="small" onClick={()=>handleDelete(row.id)}>Delete</Button>
                     </TableCell>
                     </TableRow>

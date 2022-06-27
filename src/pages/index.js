@@ -4,12 +4,14 @@ import EditEmployee from './EditEmployee';
 import ListEmployees from './ListEmployees';
 import Header from './Header';
 import Swal from 'sweetalert2';
+import AddGoals from './AddGoals';
 
 function AdminView () {
     const [employees, setEmployees] = useState([]);
     const [isAdding, setAddEmployee] = useState(false);
     const [isEditing, setEditEmployee] = useState(false);
     const [selectedEmployee, setSelectedEmployee] = useState(null);
+    const [isAddingGoals, setAddGoals] = useState(false);
 
     useEffect(()=>{
         fetch("http://localhost:8900/employeeData")
@@ -24,6 +26,12 @@ function AdminView () {
         const [employee] = employees.filter(employee => employee.id === id);
         setSelectedEmployee(employee);
         setEditEmployee(true);
+    }
+
+    const handleAddGoals = (id) => {
+        const [employee] = employees.filter(employee => employee.id === id);
+        setSelectedEmployee(employee);
+        setAddGoals(true);
     }
 
     const handleDelete = (id) => {
@@ -58,12 +66,13 @@ function AdminView () {
 
     return (
         <div className="container">
-            {!isAdding && !isEditing && (
+            {!isAdding && !isEditing && !isAddingGoals && (
                 <>
                     <Header setAddEmployee = {setAddEmployee} />
                     <ListEmployees 
                         employees = {employees}
                         handleEdit = {handleEdit}
+                        handleAddGoals = {handleAddGoals}
                         handleDelete = {handleDelete}
                     />
                 </>
@@ -81,6 +90,14 @@ function AdminView () {
                     selectedEmployee = {selectedEmployee}
                     setEmployees = {setEmployees}
                     setEditEmployee = {setEditEmployee}
+                />
+            }
+            {isAddingGoals &&
+                <AddGoals
+                    employees = {employees}
+                    selectedEmployee = {selectedEmployee}
+                    setEmployees = {setEmployees}
+                    setAddGoals = {setAddGoals}
                 />
             }
         </div>

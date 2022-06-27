@@ -3,6 +3,7 @@ import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Swal from 'sweetalert2';
+import Rating from '@mui/material/Rating';
 
 export default function EditEmployee ({ employees, selectedEmployee, setEmployees, setEditEmployee}) {
     const id = selectedEmployee.id;
@@ -11,6 +12,10 @@ export default function EditEmployee ({ employees, selectedEmployee, setEmployee
     const [email, setEmail] = useState(selectedEmployee.email);
     const [salary, setSalary] = useState(selectedEmployee.salary);
     const [dob, setDob] = useState(selectedEmployee.dob);
+    const [techGoal, setTechGoal] = useState(selectedEmployee.goal_1);
+    const [processGoal, setProcessGoal] = useState(selectedEmployee.goal_2);
+    const [adminTechRating, setAdminTechRating] = React.useState(selectedEmployee.goal1Rating);
+    const [adminProcessRating, setAdminProcessRating] = React.useState(selectedEmployee.goal2Rating);
 
     const handleUpdate = (e) => {
         e.preventDefault();
@@ -29,7 +34,11 @@ export default function EditEmployee ({ employees, selectedEmployee, setEmployee
                 lastName: lastName,
                 email: email,
                 salary: salary,
-                dob: dob
+                dob: dob,
+                goal_1: techGoal,
+                goal_2: processGoal,
+                goal1Rating: adminTechRating,
+                goal2Rating: adminProcessRating
             }
 
             for (let i=0; i<employees.length; i++) {
@@ -50,7 +59,7 @@ export default function EditEmployee ({ employees, selectedEmployee, setEmployee
                     result.json().then((resp)=>{
                     console.log(resp);
                     console.log(employees);
-                    setEmployees(employee);
+                    console.log(employee);
                     setEditEmployee(false);
                 })
             })
@@ -67,7 +76,7 @@ export default function EditEmployee ({ employees, selectedEmployee, setEmployee
 
     return (
         <div className="small-container">
-            <form onSubmit={handleUpdate}>
+            <form style={{ margin: "auto" }} onSubmit={handleUpdate}>
             <h1>Edit Employee</h1>
             <TextField
                 id="fname"
@@ -123,7 +132,7 @@ export default function EditEmployee ({ employees, selectedEmployee, setEmployee
                   }}
                 size="large"
                 onChange={e => setDob(e.target.value)}
-            /><br/><br/>
+            /><br/><br/> 
             <Button variant="contained" type="submit">Update</Button> &nbsp;&nbsp;
             <Button variant="contained" onClick={() => setEditEmployee(false)}>Cancel</Button>
             </form>
